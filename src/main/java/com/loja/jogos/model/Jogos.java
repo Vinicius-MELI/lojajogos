@@ -17,20 +17,21 @@ public class Jogos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message= "O nome do jogo é obrigatório!")
-    @Size (min = 1, max = 100, message = "O nome deve conter entre 1 e 100 caracteres")
-    private String nomeJogo;
+    @NotBlank(message = "O nome do jogo é obrigatório!")
+    @Size(min = 1, max = 100, message = "O nome deve conter entre 1 e 100 caracteres")
+    private String nomejogo;
 
     @NotBlank(message = "Por favor, descreva o jogo.")
-    @Size(min = 10, max = 5000, message = "É necessária uma descrição melhor do jogo com até 5000 caracteres.")
+    @Size(min = 1, max = 5000, message = "É necessária uma descrição melhor do jogo com até 5000 caracteres.")
     private String descricao;
 
     @NotBlank(message = "Informe o console!")
-    @Size (min = 1, max = 100, message = "Por favor, verifique o nome informado")
+    @Size(min = 1, max = 100, message = "Por favor, verifique o nome informado")
     private String console;
 
     @UpdateTimestamp
     private LocalDateTime data;
+
 
     public Long getId() {
         return id;
@@ -40,12 +41,12 @@ public class Jogos {
         this.id = id;
     }
 
-    public String getNomeJogo() {
-        return nomeJogo;
+    public String getNomejogo() {
+        return nomejogo;
     }
 
-    public void setNomeJogo(String nomeJogo) {
-        this.nomeJogo = nomeJogo;
+    public void setNomejogo(String nomejogo) {
+        this.nomejogo = nomejogo;
     }
 
     public String getDescricao() {
