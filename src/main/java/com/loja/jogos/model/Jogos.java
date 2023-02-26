@@ -1,11 +1,11 @@
 package com.loja.jogos.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnNotWebApplication;
 
 import java.time.LocalDateTime;
 
@@ -32,6 +32,9 @@ public class Jogos {
     @UpdateTimestamp
     private LocalDateTime data;
 
+    @ManyToOne
+    @JsonIgnoreProperties ("jogos")
+    private Plataformas plataformas;
 
     public Long getId() {
         return id;
@@ -71,5 +74,13 @@ public class Jogos {
 
     public void setData(LocalDateTime data) {
         this.data = data;
+    }
+
+    public Plataformas getPlataforma() {
+        return plataformas;
+    }
+
+    public void setPlataforma(Plataformas plataformas) {
+        this.plataformas = plataformas;
     }
 }
